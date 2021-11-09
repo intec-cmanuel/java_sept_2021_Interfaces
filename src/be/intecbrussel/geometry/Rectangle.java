@@ -102,4 +102,9 @@ public class Rectangle extends Shape {
         setLength((getLength()/100)*factor);
         setWidth((getWidth()/100)*factor);
     }
+
+    @Override
+    public void draw(DrawingContext dc) {
+        dc.draw(this);
+    }
 }

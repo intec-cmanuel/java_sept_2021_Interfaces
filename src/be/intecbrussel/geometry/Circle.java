@@ -55,6 +55,18 @@ public class Circle extends Shape {
 
     @Override
     public void scale(int factor) {
-        setRadius((getRadius()/100)*factor);
+        setRadius((getRadius()*factor)/100);
+    }
+
+    @Override
+    public void draw(DrawingContext dc) {
+        dc.draw(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
 }

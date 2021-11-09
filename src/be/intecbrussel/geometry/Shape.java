@@ -2,7 +2,7 @@ package be.intecbrussel.geometry;
 
 import java.util.Objects;
 
-public abstract class Shape implements Scalable{
+public abstract class Shape implements Drawable{
     private static int count;
     private int x;
     private int y;
