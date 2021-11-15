@@ -9,10 +9,10 @@ public class ContextApp {
         Circle circle = new Circle(11);
 
         myLittlePicasso.add(rectangle);
-        myLittlePicasso.add(triangle);
-        myLittlePicasso.add(circle);
+//        myLittlePicasso.add(triangle);
+//        myLittlePicasso.add(circle);
 
-        DrawingContext drawingContext = new TextDrawingContext();
+        DrawingContext drawingContext = new GraphicalDrawingContext(800,800);
 
         myLittlePicasso.draw(drawingContext);
         myLittlePicasso.scale(Scalable.DOUBLE);
