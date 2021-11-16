@@ -1,14 +1,15 @@
 package be.intecbrussel.geometry;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Objects;
 
-public class Drawing  implements Drawable{
+public class Drawing  implements Drawable, Iterable<Drawable>{
     private Drawable[] drawables;
     private int size;
 
     public Drawing() {
-        drawables = new Drawable[100];
+        drawables = new Drawable[500000];
         size = 0;
     }
 
@@ -82,5 +83,42 @@ public class Drawing  implements Drawable{
             }
         }
         return toReturn;
+    }
+
+    public void add(Drawable... drawables) {
+        for (Drawable drawable : drawables) {
+            add(drawable);
+        }
+    }
+
+    @Override
+    public Iterator<Drawable> iterator() {
+        return new DrawableIterator();
+    }
+
+    class DrawableIterator implements Iterator<Drawable> {
+
+        private int indexNextElement = 0;
+
+        @Override
+        public boolean hasNext() {
+            while(true) {
+                if (indexNextElement >= drawables.length) {
+                    return false;
+                }
+
+                if (drawables[indexNextElement] != null) {
+                    return true;
+                } else {
+                    indexNextElement++;
+//                return hasNext();
+                }
+            }
+        }
+
+        @Override
+        public Drawable next() {
+            return drawables[indexNextElement++];
+        }
     }
 }
